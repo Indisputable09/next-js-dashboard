@@ -5,6 +5,7 @@ import css from "@eslint/css";
 import { FlatCompat } from "@eslint/eslintrc";
 import js from "@eslint/js";
 import anyEslintParser from "any-eslint-parser";
+import nextVitals from "eslint-config-next/core-web-vitals";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
 import tailwindcss from "eslint-plugin-tailwindcss";
@@ -18,12 +19,13 @@ const compat = new FlatCompat({
   baseDirectory: __dirname,
 });
 
-export default [
+const config = [
   js.configs.recommended,
   ...tseslint.configs.recommended,
   ...tseslint.configs.stylistic,
+  ...nextVitals,
   ...compat.config({
-    // ignorePatterns: ["node_modules/", "dist/", "build/", "out/", ".next/"],
+    ignorePatterns: ["node_modules/", "dist/", "build/", "out/", ".next/"],
     extends: ["prettier"],
     plugins: [
       "prettier",
@@ -116,3 +118,5 @@ export default [
     },
   },
 ];
+
+export default config;
