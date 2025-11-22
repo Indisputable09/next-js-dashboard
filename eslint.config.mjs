@@ -23,7 +23,7 @@ export default [
   ...tseslint.configs.recommended,
   ...tseslint.configs.stylistic,
   ...compat.config({
-    ignorePatterns: ["node_modules/", "dist/", "build/", "out/", ".next/"],
+    // ignorePatterns: ["node_modules/", "dist/", "build/", "out/", ".next/"],
     extends: ["prettier"],
     plugins: [
       "prettier",
